@@ -7,8 +7,12 @@ from joblib import load
 from sklearn.impute import SimpleImputer
 
 # Load the model and scaler
-model_path = r'_meta_model.pkl'
-scaler_path = r'scaler.pkl'
+import os
+
+# Load the model and scaler
+current_dir = os.path.dirname(os.path.abspath(__file__))
+model_path = os.path.join(current_dir, '_meta_model.pkl')
+scaler_path = os.path.join(current_dir, 'scaler.pkl')
 model = load(model_path)
 scaler = load(scaler_path)
 

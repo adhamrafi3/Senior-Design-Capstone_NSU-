@@ -160,7 +160,10 @@ elif page == "Chill Zone (Snake Game)":
     st.title("🎮 Chill Zone - Snake Game")
     st.markdown("Use your arrow keys to control the snake 🐍")
     try:
-        with open("snake_embed.html", "r", encoding="utf-8") as file:
+        import os
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+        file_path = os.path.join(current_dir, "snake_embed.html")
+        with open(file_path, "r", encoding="utf-8") as file:
             snake_game_html = file.read()
             components.html(snake_game_html, height=600)
     except FileNotFoundError:
